@@ -1,24 +1,19 @@
 pipeline {
     agent any
 
-    tools {
-        git 'Git' // Remplacez par le nom de votre installation de Git si nécessaire
-        maven 'M3' // Assurez-vous que ce nom correspond à votre configuration Maven
-    }
-
     stages {
         stage('Checkout') {
             steps {
-                // Ajoutez des options de credentials si nécessaire
-                git url: 'https://github.com/mehdiKharij/TestTP', branch: 'main'
+                git url: 'https://github.com/mehdiKharij/TestTP.git', branch: 'main'
             }
         }
 
         stage('Display Message') {
-            steps {
-                echo 'Git checkout successful! Repository cloned.'
-            }
-        }
+                    steps {
+                        // Display a message indicating successful Git checkout
+                        echo 'Git checkout successful! Repository cloned.'
+                    }
+                }
 
         stage('Build') {
             steps {
@@ -26,10 +21,15 @@ pipeline {
             }
         }
 
-        stage('Build Success') {
-            steps {
-                echo 'mvn clean install completed successfully!'
-            }
-        }
+        stage('mvn clean package successful passed') {
+                    steps {
+                        // Display a message indicating successful Git checkout
+                        echo 'mvn clean install!'
+                    }
+                }
+
+
     }
+
+    //comment test
 }
