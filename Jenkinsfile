@@ -17,7 +17,8 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'bat '"C:\\Program Files\\apache-maven-3.9.9\\bin\\mvn" clean install''
+                // Utilisez bat pour exécuter mvn sur Windows
+                                bat '"C:\\Program Files\\apache-maven-3.9.9\\bin\\mvn" clean install'
             }
         }
 
